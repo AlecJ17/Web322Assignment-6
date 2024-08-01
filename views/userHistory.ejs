@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User History - Lego Collection</title>
+    <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body>
+<%- include('partials/navbar', {page: '/userHistory' }) %>
+<div class="container mx-auto p-5">
+    <h1 class="text-center text-4xl font-bold">User Activity</h1>
+    <p class="text-center my-4">Check out your latest logins and actions.</p>
+    <table class="w-full mt-5 bg-white rounded shadow">
+        <thead class="bg-gray-200">
+        <tr>
+            <th class="px-4 py-2">Login Date/Time</th>
+            <th class="px-4 py-2">Client Information</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% if (session.user && session.user.loginHistory) { %>
+            <% session.user.loginHistory.forEach(entry => { %>
+                <tr class="hover:bg-gray-100">
+                    <td class="px-4 py-2"><%= entry.dateTime %></td>
+                    <td class="px-4 py-2"><%= entry.userAgent %></td>
+                </tr>
+            <% }); %>
+        <% } else { %>
+            <tr class="hover:bg-gray-100">
+                <td class="px-4 py-2" colspan="2">No history available.</td>
+            </tr>
+        <% } %>
+        </tbody>
+
+    </table>
+</div>
+</body>
+</html>

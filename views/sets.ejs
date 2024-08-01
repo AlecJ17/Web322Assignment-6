@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lego Collection</title>
+  <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body>
+<%- include('partials/navbar', {page: '/lego/sets'}) %>
+<div class="container mx-auto my-8">
+  <section class="text-center mb-6">
+    <h3 class="text-4xl font-bold text-gray-800">Lego Collection List</h3>
+    <p class="text-gray-600 mt-3">
+      Explore our extensive list of Lego sets:
+    </p>
+    <div class="theme-buttons mt-4">
+      <a class="btn btn-outline-primary hover:bg-primary hover:text-white" href="/lego/sets?theme=technic">Technic</a>
+      <a class="btn btn-outline-primary hover:bg-primary hover:text-white" href="/lego/sets?theme=classic%20town">Classic Town</a>
+      <a class="btn btn-outline-primary hover:bg-primary hover:text-white" href="/lego/sets?theme=supplemental">Supplemental</a>
+    </div>
+  </section>
+  <div class="overflow-x-auto">
+    <table class="w-full text-sm text-gray-500">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+      <tr>
+        <th scope="col" class="py-3 px-6 text-center">Set Image</th>
+        <th scope="col" class="py-3 px-6 text-center">Set Name</th>
+        <th scope="col" class="py-3 px-6 text-center">Theme</th>
+        <th scope="col" class="py-3 px-6 text-center">Year & Parts</th>
+        <th scope="col" class="py-3 px-6 text-center">Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% sets.forEach(item => { %>
+        <tr class="bg-white border-b hover:bg-gray-100">
+          <td class="py-4 px-6 text-center">
+            <img src="<%= item.img_url %>" alt="Image of <%= item.name %>" style="height: 100px;"> <!-- Ensure images are a reasonable size -->
+          </td>
+          <td class="py-4 px-6 text-center"><%= item.name %></td>
+          <td class="py-4 px-6 text-center"><%= item.Theme.name %></td> <!-- Adjusted to use joined theme data -->
+          <td class="py-4 px-6 text-center">
+            Year: <%= item.year %><br />
+            Parts: <%= item.num_parts %>
+          </td>
+          <td class="py-4 px-6 text-center">
+            <a href="/lego/sets/<%= item.set_num %>" class="btn btn-primary btn-sm hover:bg-dark-primary">Details</a>
+          </td>
+        </tr>
+      <% }); %>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>

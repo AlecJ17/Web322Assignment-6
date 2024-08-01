@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lego Collection</title>
+    <link rel="stylesheet" href="/css/main.css" />
+</head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Set - <%= set.name %></title>
+    <link href="/css/main.css" rel="stylesheet">
+</head>
+<body>
+<%- include('partials/navbar', {page: '/'}) %>
+<div class="container mx-auto p-5">
+    <div class="hero bg-base-200">
+        <div class="hero-content text-center">
+            <div class="max-w-md">
+                <h1 class="text-5xl font-bold"><%= set.name %></h1>
+                <p class="py-6">
+                    Below, you will find detailed information about the set: <%=
+                    set.name %>
+                </p>
+            </div>
+        </div>
+    </div>
+    <% if (session.user) { %>
+        <div class="card-actions justify-center">
+            <a href="/lego/editSet/<%= set.set_num %>" class="btn btn-success">Edit</a>
+            <a href="#" onclick="history.back(); return false;" class="btn btn-primary">Return</a>
+        </div>
+    <% } %>
+    <div class="card card-side bg-base-100 shadow-xl my-3">
+        <figure>
+            <img src="<%= set.img_url %>" alt="<%= set.name %>" />
+        </figure>
+        <div class="card-body">
+            <div class="text-center">
+                <p>
+                    <span class="font-bold">Year:</span> <%= set.year %> |
+                    <span class="font-bold">Theme:</span> <%= set.Theme.name %>
+                </p>
+                <p><span class="font-bold">Parts:</span> <%= set.num_parts %></p>
+            </div>
+            <div class="text-center my-6" id="quote"></div>
+            <div class="card-actions justify-center">
+                <a
+                        href="#"
+                        onclick="history.back(); return false;"
+                        class="btn btn-primary"
+                >return</a
+                >
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        fetch("https://quotable.io/random")
+            .then((response) => response.json())
+            .then((data) => {
+                const quoteElement = document.getElementById("quote");
+                quoteElement.innerHTML = `<p>${data.content}</p><p>- ${data.author}</p>`;
+            })
+            .catch((error) => {
+                console.error("Failed to fetch a quote: " + error);
+            });
+    });
+</script>
+</body>
+</html>

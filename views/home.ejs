@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lego Collection</title>
+  <link rel="stylesheet" href="/css/main.css" />
+</head>
+
+<body tabindex="-1">
+<%- include('partials/navbar', { page: '/' }) %>
+<br />
+
+<div class="container mx-auto">
+  <div class="hero bg-base-200 rounded-lg p-6">
+    <div class="hero-content text-center">
+      <div class="max-w-md">
+        <h1 class="text-5xl font-bold">Explore Our Lego Collection</h1>
+        <p class="py-6">
+          Discover sets from different themes and expand your imagination!
+        </p>
+
+        <a href="/lego/sets" class="btn btn-primary">Get Started</a>
+      </div>
+    </div>
+  </div>
+
+  <br />
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div>
+      <div class="card bg-base-100 shadow-xl">
+        <figure>
+          <img
+                  class="w-full"
+                  src="https://cdn.rebrickable.com/media/sets/001-1.jpg"
+                  alt="Lego set"
+          />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">Gears</h2>
+          <p>A vintage set from 1965, featuring 43 pieces.</p>
+          <div class="card-actions justify-end">
+            <a href="/lego/sets/001-1" class="btn btn-primary">View</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="card bg-base-100 shadow-xl">
+        <figure>
+          <img
+                  class="w-full"
+                  src="https://cdn.rebrickable.com/media/sets/0011-2.jpg"
+                  alt="Lego Set"
+          />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">Town Mini-Figures</h2>
+          <p>An engaging set from 1979, includes 12 mini-figures.</p>
+          <div class="card-actions justify-end">
+            <a href="/lego/sets/028-1" class="btn btn-primary">View</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="card bg-base-100 shadow-xl">
+        <figure>
+          <img
+                  class="w-full"
+                  src="https://cdn.rebrickable.com/media/sets/0011-3.jpg"
+                  alt="Lego Set"
+          />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">Castle 2 for 1 Bonus Offer</h2>
+          <p>A classic castle theme bonus pack from 1987.</p>
+          <div class="card-actions justify-end">
+            <a href="/lego/sets/03093-1" class="btn btn-primary">View</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

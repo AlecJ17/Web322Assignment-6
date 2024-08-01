@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lego Collection</title>
+  <link rel="stylesheet" href="/css/main.css" />
+</head>
+
+<body tabindex="-1">
+<%- include('partials/navbar', { page: '/about' }) %>
+<br />
+
+<div class="container mx-auto">
+  <div class="hero bg-base-200 rounded-lg p-6">
+    <div class="hero-content text-center">
+      <div class="max-w-md">
+        <h1 class="text-5xl font-bold">About</h1>
+
+        <p class="py-6">
+          Get to know me - the designer &amp; developer of this website.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <br />
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div>
+      <img
+              class="w-full rounded-lg"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkiENcfzewm0pudNUc6Dza8a2sXr3YXzrAMQ&s"
+              alt="profile"
+      />
+    </div>
+    <div class="prose">
+      <div class="space-y-4">
+        <h2 class="text-xl font-bold">Hi, I'm Alec Josef Serrano!</h2>
+        <p>
+          I'm an Electrical Engineer back in the Philippines and now
+          pursuing Computer Programming at Seneca Polytechnic.
+        </p>
+        <p>
+          I enjoy building projects like this one that combine my hobbies
+          and my education and this benefits me to explore more things in
+          computer world.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
